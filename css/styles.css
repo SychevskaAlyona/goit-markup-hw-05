@@ -14,6 +14,7 @@
 
   /* Другое */
 }
+
 body {
   font-family: var(--main-font);
   font-size: 14px;
@@ -21,6 +22,10 @@ body {
   color: var(--main-txt-cl);
   background-color: var(--main-bcg-cl);
   letter-spacing: 0.03em;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 img {
@@ -63,6 +68,10 @@ p {
   margin: 0;
 }
 
+/* Animation */
+
+/* 250ms  cubic-bezier(0.4, 0, 0.2, 1) */
+
 /* Logo */
 .header-logo,
 .footer-logo {
@@ -104,12 +113,15 @@ header {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  position: relative;
 
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--title-cl);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-link:hover,
@@ -124,6 +136,20 @@ header {
 
 .header-item:not(:last-child) {
   margin-right: 50px;
+}
+
+.current::after {
+  content:'';
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left:0;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-cl);
+  
 }
 
 .contact-list {
@@ -142,21 +168,27 @@ header {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--main-txt-cl);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-item:not(:last-child) {
   margin-right: 30px;
 }
+
 /* Contact icons */
 .contact-mail {
   margin-right: 10px;
 
   fill: #757575;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover .contact-mail {
   fill: var(--accent-cl);
 }
+
 .contact-link:focus .contact-mail {
   fill: var(--accent-cl);
 }
@@ -165,6 +197,8 @@ header {
   margin-right: 10px;
 
   fill: #757575;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover .contact-tel {
@@ -215,6 +249,8 @@ header {
 .address-link {
   font-style: normal;
   color: rgba(255, 255, 255, 0.6);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-box {
@@ -248,10 +284,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color:rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-icon {
@@ -262,7 +301,6 @@ header {
 .footer-social-link:focus {
   background-color: var(--accent-cl);
 }
-
 
 /* -----------------------Main Page Styles--------------------- */
 /* Hero section */
@@ -292,6 +330,7 @@ header {
   text-transform: uppercase;
   color: #ffffff;
 }
+
 .hero-btn {
   min-width: 200px;
   padding: 10px 30px;
@@ -309,11 +348,13 @@ header {
   border-radius: 4px;
   border: 0;
 }
+
 .hero-btn:hover,
 .hero-btn:focus {
   background-color: var(--accent-cl);
   cursor: pointer;
 }
+
 /* Features */
 
 .visually-hidden {
@@ -374,6 +415,29 @@ header {
 
 .work-item:not(:last-child) {
   margin-right: 30px;
+}
+
+.work-item {
+  position: relative;
+}
+
+.work-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  width: 100%;  
+
+  font-weight: 700;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  background-color: rgba(47, 48, 58, 0.8);
+  color: var(--main-bcg-cl);
 }
 
 /* Work + Team */
@@ -444,14 +508,19 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 44px;
   height: 44px;
   border-radius: 50%;
   background-color: #ffffff;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon {
   fill: #afb1b8;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -462,6 +531,7 @@ header {
 .social-link:hover .social-icon {
   fill: var(--main-bcg-cl);
 }
+
 .social-link:focus .social-icon {
   fill: var(--main-bcg-cl);
 }
@@ -493,6 +563,8 @@ header {
   height: 92px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover,
@@ -502,6 +574,8 @@ header {
 
 .clients-icon {
   fill: #afb1b8;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover .clients-icon {
@@ -511,6 +585,59 @@ header {
 .clients-link:focus .clients-icon {
   fill: var(--accent-cl);
 }
+
+/* Modal */
+
+.backdrop {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+
 
 /* ----------------------Portfolio styles---------------------- */
 /* Filters btn */
@@ -524,7 +651,10 @@ header {
   color: var(--title-cl);
   border-radius: 4px;
   border: none;
+
   padding: 6px 22px;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-btn:hover,
@@ -561,7 +691,8 @@ header {
 }
 
 .portfolio-item {
-  width: 370px;
+   width: 370px;
+
 }
 
 /* .portfolio-item:not(:nth-child(3n)) {
@@ -598,11 +729,45 @@ header {
 
 .portfolio-link {
   display: block;
+  
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 
 .portfolio-link:hover,
 .portfolio-link:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-    0px 4px 4px rgba(0, 0, 0, 0.06),
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  
 }
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+
+  transform: translateY(100%);
+  transition: transform 250ms ease;
+
+}
+.overlay-text {  
+  padding: 64px 23px;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  color: var(--main-bcg-cl);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.portfolio-link:hover .overlay {
+  transform: translateY(0);
+}
+
